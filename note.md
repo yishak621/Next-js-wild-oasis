@@ -13,3 +13,6 @@
 - server lient boundery -[is when a client component is under a server side ]
 - only import client component
 - on state change
+
+**alias-importing**
+using '@/app/\_components/' instead of '/../../../'
