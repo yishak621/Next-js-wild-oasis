@@ -41,19 +41,28 @@ export default function Page() {
       </div>
 
       <div className="col-span-2">
-        <Image
-          src={aboutOne}
-          placeholder="blur"
-          alt="Family sitting around a fire pit in front of cabin"
-        />
+        {/**if we have a div to be fullfileed with image - fluid image */}
+        <div className=" relative aspect-square col-span-2">
+          <Image
+            src={aboutOne}
+            placeholder="blur"
+            fill
+            className=" object-cover"
+            alt="Family sitting around a fire pit in front of cabin"
+          />
+        </div>
       </div>
 
       <div className="col-span-2">
-        <Image
-          src={aboutTwo}
-          placeholder="blur"
-          alt="Family that manages The Wild Oasis"
-        />
+        <div className=" relative aspect-square col-span-2">
+          <Image
+            src={aboutTwo}
+            placeholder="blur"
+            fill
+            className=" object-cover"
+            alt="Family that manages The Wild Oasis"
+          />
+        </div>
       </div>
 
       <div className="col-span-3">
