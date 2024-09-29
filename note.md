@@ -16,3 +16,9 @@
 
 **alias-importing**
 using '@/app/\_components/' instead of '/../../../'
+
+**REACT SUSPENCE**
+-- is built in react com[onent]
+
+- used to catch components which are not ready to be rendered
+- wrap the data fetching component into its own component ,
