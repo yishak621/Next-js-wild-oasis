@@ -6,7 +6,7 @@ import { supabase } from "./supabase";
 
 export async function getCabin(id) {
   const { data, error } = await supabase
-    .from("cabins")
+    .from("Cabins")
     .select("*")
     .eq("id", id)
     .single();
@@ -23,7 +23,7 @@ export async function getCabin(id) {
 
 export async function getCabinPrice(id) {
   const { data, error } = await supabase
-    .from("cabins")
+    .from("Cabins")
     .select("regularPrice, discount")
     .eq("id", id)
     .single();
@@ -63,7 +63,7 @@ export async function getGuest(email) {
 
 export async function getBooking(id) {
   const { data, error, count } = await supabase
-    .from("bookings")
+    .from("Bookings")
     .select("*")
     .eq("id", id)
     .single();
@@ -78,7 +78,7 @@ export async function getBooking(id) {
 
 export async function getBookings(guestId) {
   const { data, error, count } = await supabase
-    .from("bookings")
+    .from("Bookings")
     // We actually also need data on the cabins as well. But let's ONLY take the data that we actually need, in order to reduce downloaded data.
     .select(
       "id, created_at, startDate, endDate, numNights, numGuests, totalPrice, guestId, cabinId, cabins(name, image)"
@@ -101,7 +101,7 @@ export async function getBookedDatesByCabinId(cabinId) {
 
   // Getting all bookings
   const { data, error } = await supabase
-    .from("bookings")
+    .from("Bookings")
     .select("*")
     .eq("cabinId", cabinId)
     .or(`startDate.gte.${today},status.eq.checked-in`);
@@ -163,7 +163,7 @@ export async function createGuest(newGuest) {
 
 export async function createBooking(newBooking) {
   const { data, error } = await supabase
-    .from("bookings")
+    .from("Bookings")
     .insert([newBooking])
     // So that the newly created object gets returned!
     .select()
@@ -198,7 +198,7 @@ export async function updateGuest(id, updatedFields) {
 
 export async function updateBooking(id, updatedFields) {
   const { data, error } = await supabase
-    .from("bookings")
+    .from("Bookings")
     .update(updatedFields)
     .eq("id", id)
     .select()
@@ -215,7 +215,7 @@ export async function updateBooking(id, updatedFields) {
 // DELETE
 
 export async function deleteBooking(id) {
-  const { data, error } = await supabase.from("bookings").delete().eq("id", id);
+  const { data, error } = await supabase.from("Bookings").delete().eq("id", id);
 
   if (error) {
     console.error(error);

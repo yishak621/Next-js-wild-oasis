@@ -22,3 +22,5 @@ using '@/app/\_components/' instead of '/../../../'
 
 - used to catch components which are not ready to be rendered
 - wrap the data fetching component into its own component ,
+
+**DYNAMIC ROUTE SEGMENT**
