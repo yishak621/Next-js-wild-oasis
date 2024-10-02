@@ -34,3 +34,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+-- STATIC RENDERING ------------- DYNAMIC RENDERING
+
+- html is generated at built time - html is generated at requeest time
+- usefull when data does not change over time
+
+### Static routes (or static paths) are used in web development, particularly in frameworks like Next.js, to pre-generate pages at build time.

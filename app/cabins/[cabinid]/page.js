@@ -1,4 +1,4 @@
-import { getCabin } from "@/app/_lib/data-service";
+import { getCabin, getCabins } from "@/app/_lib/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
@@ -8,6 +8,15 @@ export async function generateMetadata({ params }) {
   return {
     title: `Cabin ${name} `,
   };
+}
+//Static routes (or static paths) are used in web development, particularly in frameworks like Next.js, to pre-generate pages at build time.
+export async function generateStaticParams() {
+  const cabins = await getCabins();
+  const ids = cabins.map((cabin) => {
+    return { cabinId: String(cabin.id) };
+  });
+  console.log(ids);
+  return ids;
 }
 
 export default async function Page({ params }) {
