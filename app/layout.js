@@ -1,7 +1,3 @@
-import { title } from "process";
-import Navigation from "@/app/_components/Navigation";
-import Logo from "@/app/_components/Logo";
-
 import "@/app/_styles/globals.css";
 
 import { Josefin_Sans } from "next/font/google";

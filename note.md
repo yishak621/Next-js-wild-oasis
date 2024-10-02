@@ -24,3 +24,5 @@ using '@/app/\_components/' instead of '/../../../'
 - wrap the data fetching component into its own component ,
 
 **DYNAMIC ROUTE SEGMENT**
+
+**generateStaticParams**
