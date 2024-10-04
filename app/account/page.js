@@ -7,7 +7,7 @@ export const metadata = {
 
 function Page() {
   return (
-    <div>
+    <div className=" pl-7">
       <h2 className="font-semibold text-2xl text-accent-400 mb-7">
         Welcome , Jonas
       </h2>
