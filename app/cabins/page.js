@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import CabinList from "../_components/CabinList";
 import Spinner from "../_components/Spinner";
 import { getCabins } from "../_lib/data-service";
+import Filter from "../_components/Filter";
 
 //revalidate in seconds
 export const revalidate = 3600;
@@ -25,8 +26,12 @@ export default function Page({ searchParams }) {
         away from home. The perfect spot for a peaceful, calm vacation. Welcome
         to paradise.
       </p>
+      <div className=" flex justify-end mb-8">
+        <Filter />
+      </div>
+
       {/**Separate a data fetching component and wrap it with a suspence component */}
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner />} key={filter}>
         <CabinList filter={filter} />
       </Suspense>
     </div>
