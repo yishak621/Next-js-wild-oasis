@@ -17,7 +17,7 @@ async function Reservation({ cabin }) {
         bookedDates={bookedDates}
         cabin={cabin}
       />
-      <ReservationForm />
+      <ReservationForm cabin={cabin} />
     </div>
   );
 }
