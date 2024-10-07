@@ -18,7 +18,7 @@
 using '@/app/\_components/' instead of '/../../../'
 
 **REACT SUSPENCE**
--- is built in react com[onent]
+-- is built in react component
 
 - used to catch components which are not ready to be rendered
 - wrap the data fetching component into its own component ,
@@ -28,3 +28,10 @@ using '@/app/\_components/' instead of '/../../../'
 **generateStaticParams**
 
 **[...nextauth] means whatever route follows the auth/**
+
+**MIDDLEWARE IN NEXT JS**
+-- runs before every route in a project , but we can specify which paths using a matcher. a chunk of code that's in every paje.js
+-- main use case is to read and set cookies and headers of the incoming requests
+-- Authentication and Authorization
+-- Server side analytics
+-- Redirect based on the geolocation
