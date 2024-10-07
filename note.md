@@ -26,3 +26,5 @@ using '@/app/\_components/' instead of '/../../../'
 **DYNAMIC ROUTE SEGMENT**
 
 **generateStaticParams**
+
+**[...nextauth] means whatever route follows the auth/**
