@@ -35,3 +35,9 @@ using '@/app/\_components/' instead of '/../../../'
 -- Authentication and Authorization
 -- Server side analytics
 -- Redirect based on the geolocation
+
+**REVALIDATE in nextjs**
+
+_revalidate after some time_
+--
+_revalidate the path_

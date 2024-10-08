@@ -8,6 +8,7 @@ export const metadata = {
 
 async function Page() {
   const { user } = await auth();
+
   const firstName = user.name.split(" ").at(0);
   return (
     <div className=" pl-7">
