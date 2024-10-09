@@ -66,6 +66,7 @@ function UpdateProfileForm({ children, guest }) {
 
 //a component for displaying the status of the form
 function Button() {
+  //when using a form and using a form actions for updating
   const { pending } = useFormStatus(); //we can not use this hook inside the form componennt , that is why we have another separate component
 
   return (
