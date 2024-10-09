@@ -2,7 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
-import { updateGuest } from "./data-service";
+import { getBookings, updateGuest } from "./data-service";
+import { supabase } from "./supabase";
 // the native formdata API will transfer the data to here -DONT FORGET TO GIVE THEM A NAME
 export async function updateProfile(formData) {
   //formdata is a web api that also works in a web browser
@@ -33,6 +34,12 @@ export async function signOutAction() {
 export async function deleteReservation(bookingId) {
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
+  //to prevent hacker delation
+  const guestBookings = await getBookings(session.user.guestId);
+  const guestBookingsIds = guestBookings.map((booking) => booking.id);
+
+  if (!guestBookingsIds.includes(bookingId))
+    throw new Error("You are not allowed to delete this booking");
 
   const { error } = await supabase
     .from("Bookings")
@@ -40,4 +47,5 @@ export async function deleteReservation(bookingId) {
     .eq("id", bookingId);
 
   if (error) throw new Error("Booking could not be deleted");
+  revalidatePath("/account/reservations");
 }
