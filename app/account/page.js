@@ -10,9 +10,9 @@ export const metadata = {
 
 async function Page() {
   const { user } = await auth();
-  const bookings = await getBookings(user.guestId);
+  const bookings = await getBookings(user?.guestId);
 
-  const firstName = user.name.split(" ").at(0);
+  const firstName = user?.name.split(" ").at(0);
   return (
     <div className=" pl-7">
       <h2 className="font-semibold text-2xl text-accent-400 mb-7">
