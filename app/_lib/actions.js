@@ -81,3 +81,35 @@ export async function deleteReservation(bookingId) {
   if (error) throw new Error("Booking could not be deleted");
   revalidatePath("/account/reservations");
 }
+
+//since we use the bind method we should pass the formdata in the second argument
+export async function createBooking(bookingData, formData) {
+  const session = await auth();
+  if (!session) throw new Error("You must be logged in");
+
+  const numGuests = Number(formData.get("numGuests"));
+  const observations = formData.get("observations").slice(0, 1000);
+
+  const newBooking = {
+    ...bookingData,
+    numGuests,
+    observations,
+    guestId: session.user.guestId,
+    extrasPrice: 0,
+    totalPrice: bookingData.cabinPrice,
+    isPaid: false,
+    hasBreakfast: false,
+    status: "unconfirmed",
+  };
+
+  const { data, error } = await supabase
+    .from("Bookings")
+    .insert([newBooking])
+    // So that the newly created object gets returned!
+    .select()
+    .single();
+
+  if (error) throw new Error("Booking could not be created");
+
+  console.log(data);
+}
